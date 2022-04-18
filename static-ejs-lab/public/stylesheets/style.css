@@ -1,0 +1,68 @@
+body {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(30, 30, 30, 1);
+  /*background-image: url('../images/ball-1842290.jpg');
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;*/
+  overflow: hidden;
+  color: white;
+}
+
+a {
+  color: #00B7FF;
+}
+
+header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(9, 72, 9);
+  padding: 1rem;
+  margin: 0;
+  font-size: large;
+  font-weight: bolder;
+  border: 2pc solid white;
+}
+
+.products {
+  display: grid;
+  padding: 2rem;
+  height: "";
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.products div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+
+}
+
+.products img {
+  max-width: 15vw;
+  max-height: 15vw;
+}
+
+.products .text {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.productDetail {
+  text-align: center;
+}
+
+.productDetail img {
+  max-width: 25vw;
+  max-height: 25vw;
+}
