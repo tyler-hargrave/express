@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+ <%- include('../partials/head'); %> <%- include('../partials/header'); %>
+
+ <div class="w3-padding-large" id="main">
+  <%- include('../partials/h1'); %>
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="content">
+   <div class="w3-text-light-grey">
+    <% flights.sort((a,b) => a.departs - b.departs); flights.forEach(x => { x.class = ""; if
+    (x.departs < new Date()) x.class = "w3-text-red" %>
+    <br /><br />
+    <div class="<%= x.class %>">
+     <h3><i class="fa fa-plane"></i>&nbsp;<%=x.airline%>: <%=x.airport%></h3>
+     <b>Flight No: </b><%=x.flightNo%>
+     <br />
+     <b>Departs: </b> <%= x.departs.toString() %>
+     <br />
+     <a href="flights/<%=x.id%>">Go to Flight </a>
+    </div>
+    <%})%>
+   </div>
+  </div>
+
+  <%- include('../partials/footer'); %>
+ </div>
+</html>

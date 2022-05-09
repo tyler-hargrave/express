@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+ <%- include('../partials/head'); %> <%- include('../partials/header'); %>
+
+ <div class="w3-padding-large" id="main">
+  <%- include('../partials/h1'); %>
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="content">
+   <div class="w3-text-light-grey">
+    <br /><br />
+    <div>
+     <h3><i class="fa fa-plane"></i>&nbsp;<%=flight.airline%>: <%=flight.airport%></h3>
+     <b>Flight No: </b><%=flight.flightNo%>
+     <br />
+     <b>Departs: </b> <%= flight.departs.toString() %> <br /><br />
+     <h4>Destination(s):</h4>
+     <% flight.destinations.sort((a,b) => a.arrival - b.arrival ); flight.destinations.forEach(x =>
+     { %>
+     <li><% temp = ": " + x.arrival.toString(); %> <%= x.airport + temp %></li>
+     <%}) %>
+     <br /><br />
+     <h4>Ticket(s):</h4>
+     <% tickets.sort((a,b) => a.seat- b.seat ); tickets.forEach(x => { %>
+     <li><%= x.seat + ": $" + x.price %></li>
+     <%}) %>
+     <br /><br />
+     <form action="/flights/<%=flight._id%>/destinations" method="POST" autocomplete="off">
+      <h3>Add Destination:</h3>
+      <br />
+      <label for="airport">Airport:</label>
+      <select name="airport" value="<%= options.airports[0] %>">
+       <% options.airports.forEach(x => { %>
+       <option value="<%= x %>"><%= x %></option>
+       <% }) %>
+      </select>
+      <br />
+      <label for="arrival">Arrives:</label>
+      <input
+       type="datetime-local"
+       value="<%= flight.departs.toISOString().slice(0, 16); %>"
+       name="arrival"
+      />
+      <br />
+      <button type="submit ">+ ADD</button>
+     </form>
+     <br /><br />
+     <h3>New Ticket:</h3>
+     <a href="/flights/<%=flight._id%>/tickets/new"><button>GO!</button></a>
+    </div>
+   </div>
+  </div>
+
+  <%- include('../partials/footer'); %>
+ </div>
+</html>

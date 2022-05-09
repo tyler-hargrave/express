@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <%- include('partials/head'); %>
+ </head>
+ <body class="container">
+  <header><%- include('partials/header'); %></header>
+
+  <!-- Page content -->
+  <div class="w3-content" style="max-width: 2000px; margin-top: 46px">
+   <%- include('partials/slideshow'); %>
+
+   <div
+    class="w3-container w3-content w3-center w3-padding-64"
+    style="max-width: 800px"
+    id="skills"
+   >
+    <h1 class="w3-wide">FATHER SKILLS</h1>
+    <h2><%=skill.name%></h2>
+    <h3>
+     <% for (let x = 0; x < 1*skill.level; x++){%>
+     <b>*</b>
+     <%}%>
+    </h3>
+    <h4><a href="/skills/<%=skill.id%>/edit"> edit </a></h4>
+    <br /><br />
+    <a href="/skills"> Go Back </a>
+   </div>
+  </div>
+
+  <footer><%- include('partials/footer'); %></footer>
+ </body>
+</html>

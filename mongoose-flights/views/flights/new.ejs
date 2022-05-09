@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+ <%- include('../partials/head'); %> <%- include('../partials/header'); %>
+
+ <div class="w3-padding-large" id="main">
+  <%- include('../partials/h1'); %>
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="content">
+   <div class="w3-text-light-grey">
+    <form action="/flights" method="POST" autocomplete="off">
+     <label for="airline">Airline:</label>
+     <select value="<%= options.airlines[0] %>" name="airline">
+      <% options.airlines.forEach(x => { %>
+      <option value="<%=x%>"><%=x%></option>
+      <% }) %>
+     </select>
+     <br /><br />
+     <label for="airport">Airport:</label>
+     <select value="<%= options.airports[0] %>" name="airport">
+      <% options.airports.forEach(x => { %>
+      <option value="<%= x %>"><%= x %></option>
+      <% }) %>
+     </select>
+     <br /><br />
+     <label for="flightNo">Flight Number:</label>
+     <input type="number" name="flightNo" required min="10" max="9999" />
+     <br /><br />
+     <label for="departs">Departs:</label>
+     <input type="datetime-local" value="<%=options.departsDate%>" name="departs" />
+     <br /><br />
+     <button type="submit">Save Flight</button>
+    </form>
+   </div>
+  </div>
+
+  <%- include('../partials/footer'); %>
+ </div>
+</html>

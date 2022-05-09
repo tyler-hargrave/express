@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+ <%- include('../partials/head'); %> <%- include('../partials/header'); %>
+
+ <div class="w3-padding-large" id="main">
+  <%- include('../partials/h1'); %>
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="content">
+   <div class="w3-text-light-grey">
+    <form action="/flights/<%= flight %>/tickets" method="POST" autocomplete="off">
+     <label for="seat">Seat:</label>
+     <input name="seat" required pattern="[A-F][1-9]\d?" />
+     <br /><br />
+     <label for="price">Price:</label>
+     <input type="number" value="0" min="0" name="price" />
+     <br /><br />
+     <button type="submit">Save Ticket</button>
+    </form>
+   </div>
+  </div>
+
+  <%- include('../partials/footer'); %>
+ </div>
+</html>

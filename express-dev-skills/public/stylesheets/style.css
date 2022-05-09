@@ -1,0 +1,21 @@
+.shadowtext {
+  text-shadow: 3px 3px 0px #3f6ba9;
+}
+
+.delete-form {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+.delete-form button {
+  color: rgba(255, 0, 0, 1);
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+li {
+  list-style: none;
+  text-align: left;
+  width: 200px;
+  margin: 0px auto;
+}
